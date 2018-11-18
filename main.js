@@ -38,6 +38,7 @@ const getAppContainer = options => {
 		withFlags: false,
 		withConsent: false,
 		withServiceMetrics: true,
+		withDefaultHealthChecks: true,
 		healthChecks: []
 	}, options || {});
 

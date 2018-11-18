@@ -14,7 +14,7 @@ module.exports = (app, options, meta) => {
 		metricsHealthCheck(meta.name),
 	];
 
-	const healthChecks = options.healthChecks.concat(defaultChecks);
+	const healthChecks = (options.withDefaultHealthChecks) ? options.healthChecks.concat(defaultChecks) : options.healthChecks;
 
 	app.get(/\/__health(?:\.([123]))?$/, (req, res) => {
 		res.set({ 'Cache-Control': 'private, no-cache, max-age=0' });
